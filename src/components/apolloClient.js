@@ -1,10 +1,7 @@
-// src/apolloClient.js
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  link: new HttpLink({
-    uri: "https://api.thegraph.com/subgraphs/name/YOUR_SUBGRAPH_NAME",
-  }),
+  uri: "/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV",
   cache: new InMemoryCache(),
 });
 

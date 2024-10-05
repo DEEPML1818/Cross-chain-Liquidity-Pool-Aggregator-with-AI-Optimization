@@ -1,13 +1,12 @@
-// src/App.js
 import React, { useState } from "react";
 import { ApolloProvider } from "@apollo/client";
 import MetaMaskConnect from "./components/MetaMaskConnect";
 import WorldcoinWallet from "./components/WorldcoinWallet";
-import GraphData from "./components/GraphData";
 import TLSNotary from "./components/TLSNotary";
-import LiquidityPools from "./components/LiquidityPools"; 
+import LiquidityPools from "./components/LiquidityPools";
+import DummyCoinData from "./components/DummyCoinData";  // Import the dummy coin component
 import client from "./components/apolloClient";
-import "./App.css"; 
+import "./App.css";
 
 function App() {
   const [worldcoinVerified, setWorldcoinVerified] = useState(false);
@@ -20,7 +19,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="container">
-        <h1>Liquidity Pool Aggregator</h1>
+        <h1>Liquidity Pool With Ai Optimizer</h1>
 
         {/* MetaMask Wallet Connect */}
         <MetaMaskConnect />
@@ -49,8 +48,8 @@ function App() {
         {/* Liquidity Pools Component */}
         <LiquidityPools />
 
-        {/* Graph Data Component */}
-        <GraphData />
+        {/* Dummy Coin Data Component */}
+        <DummyCoinData />
 
         {/* TLSNotary Proof Generation */}
         <TLSNotary />
