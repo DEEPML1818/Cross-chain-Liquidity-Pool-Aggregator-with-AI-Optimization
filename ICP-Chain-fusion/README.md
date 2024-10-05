@@ -91,7 +91,6 @@ Ensure the following are installed on your system:
 Run these commands in a new, empty project directory:
 
 ```sh
-git clone https://github.com/letmejustputthishere/chain-fusion-starter.git
 cd chain-fusion-starter
 ```
 
