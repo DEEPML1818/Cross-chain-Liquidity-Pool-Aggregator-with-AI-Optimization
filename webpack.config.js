@@ -8,6 +8,10 @@ module.exports = {
             disableHostCheck: true,   // That solved it
         
          }   ,
+
+         devServer: {
+            disableHostCheck: false
+          }, 
         fallback: {
             path: require.resolve('path-browserify'),
             os: require.resolve('os-browserify/browser'),
