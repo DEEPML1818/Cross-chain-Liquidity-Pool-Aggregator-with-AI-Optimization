@@ -17,7 +17,7 @@ const GET_TRANSACTIONS = gql`
     }
   }
 `;
-
+ 
 const GraphData = () => {
   const { loading, error, data } = useQuery(GET_TRANSACTIONS);
   const [factories, setFactories] = useState([]);

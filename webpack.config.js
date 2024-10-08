@@ -3,6 +3,11 @@ const path = require('path');
 module.exports = {
     // other configuration...
     resolve: {
+        devServer: {
+            compress: true,
+            disableHostCheck: true,   // That solved it
+        
+         }   ,
         fallback: {
             path: require.resolve('path-browserify'),
             os: require.resolve('os-browserify/browser'),
