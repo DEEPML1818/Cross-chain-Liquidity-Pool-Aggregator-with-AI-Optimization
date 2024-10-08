@@ -6,6 +6,7 @@ import TLSNotary from "./components/TLSNotary";
 import LiquidityPools from "./components/LiquidityPools";
 import DummyCoinData from "./components/DummyCoinData";  // Import the dummy coin component
 import client from "./components/apolloClient";
+import GraphData from "./components/GraphData"
 import "./App.css";
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
 
         {/* Liquidity Pools Component */}
         <LiquidityPools />
+
+        <GraphData />
 
         {/* Dummy Coin Data Component */}
         <DummyCoinData />

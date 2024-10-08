@@ -2,39 +2,59 @@
 import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 
+// Correct GraphQL query
 const GET_TRANSACTIONS = gql`
   query {
-    transactions(first: 5) {
+    factories(first: 5) {
       id
-      from
-      to
-      value
+      poolCount
+      txCount
+      totalVolumeUSD
+    }
+    bundles(first: 5) {
+      id
+      ethPriceUSD
     }
   }
 `;
 
 const GraphData = () => {
   const { loading, error, data } = useQuery(GET_TRANSACTIONS);
-  const [transactions, setTransactions] = useState([]);
+  const [factories, setFactories] = useState([]);
+  const [bundles, setBundles] = useState([]);
 
+  // Update useEffect to correctly set data from the query
   useEffect(() => {
     if (data) {
-      setTransactions(data.transactions);
+      setFactories(data.factories); // setting factories
+      setBundles(data.bundles); // setting bundles
     }
   }, [data]);
 
+  // Error and loading checks
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading data from The Graph</p>;
 
   return (
     <div>
-      <h2>Latest Transactions from The Graph</h2>
+      <h2>Factories Data</h2>
       <ul>
-        {transactions.map((tx) => (
-          <li key={tx.id}>
-            <p>From: {tx.from}</p>
-            <p>To: {tx.to}</p>
-            <p>Value: {tx.value}</p>
+        {factories.map((factory) => (
+          <li key={factory.id}>
+            <p>Factory ID: {factory.id}</p>
+            <p>Pool Count: {factory.poolCount}</p>
+            <p>Tx Count: {factory.txCount}</p>
+            <p>Total Volume (USD): {factory.totalVolumeUSD}</p>
+          </li>
+        ))}
+      </ul>
+
+      <h2>ETH Price from Bundles</h2>
+      <ul>
+        {bundles.map((bundle) => (
+          <li key={bundle.id}>
+            <p>Bundle ID: {bundle.id}</p>
+            <p>ETH Price (USD): {bundle.ethPriceUSD}</p>
           </li>
         ))}
       </ul>
